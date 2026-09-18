@@ -1,68 +1,76 @@
-# Scaffold Forge
+# Scaffold Forge (Monorepo)
 
-> Forge your stack. One command.
+<div align="center">
+  <h3>Forge your stack. One command.</h3>
+  <p>An enterprise-grade, composable CLI engine for generating layered project architectures.</p>
+</div>
 
-Scaffold Forge is an enterprise-grade, composable CLI for generating layered project architectures. It resolves dependencies deterministically and supports deep-merge configurations out of the box.
+## 🧠 Architectural Philosophy
 
-## 🚀 Quick Start
+Scaffold Forge moves away from rigid, monolithic boilerplates. Instead, it utilizes a **Fragment Composition Engine**. 
+- **Base Layers** (Node/TS/JS) provide the foundation.
+- **Framework Layers** (Express/Fastify) inject routing and server logic.
+- **ORM Layers** (Prisma/Drizzle) inject database schemas and clients.
 
-Generate a new project interactively:
-``bash
-npx scaffold-forge forge my-api
-``
+These layers are composed using a **Deterministic Deep-Merge Strategy**, ensuring that `package.json` scripts, dependencies, and configuration files are mathematically merged without destructive overrides.
 
-Or use the non-interactive mode for CI/CD pipelines:
-``bash
-SFG_NON_INTERACTIVE=true SFG_FRAMEWORK=express SFG_ORM=prisma npx scaffold-forge forge my-api
-``
+## 📦 Monorepo Topology
 
-## 🏗 Architecture
+This repository is managed as a Turborepo monorepo with NPM Workspaces:
 
-Scaffold Forge is built as a Turborepo monorepo with a layered fragment composition engine:
-- **Core Engine:** Deterministic Deep Merge strategy for package.json and file composition.
-- **Plugin SDK:** Zero-trust lifecycle hooks for third-party extensions.
-- **Migration Engine:** Provenance lockfile (sfg.lock.json) for safe project upgrades.
-- **Bundled CLI:** Compiled into a single, offline-first executable using 	sup (< 8MB).
+```text
+scaffold-forge/
+├── apps/
+│   └── cli/               # The main CLI application (Published to NPM)
+├── packages/
+│   ├── core/              # Fragment resolution, Eta.js renderer, and Deep-Merge engine
+│   ├── config/            # Zod schemas for configuration validation
+│   ├── tui/               # Interactive terminal UI (@clack/prompts)
+│   ├── templates/         # The Fragment Registry (Base, Framework, ORM assets)
+│   ├── plugin-sdk/        # Type-safe contracts for plugin developers
+│   ├── migration/         # Provenance lockfile (sfg.lock.json) diffing engine
+│   └── shared/            # Cross-workspace utilities
+└── plugins/               # First-party plugins (Docker, Auth, CI)
+```
 
-## 📦 Monorepo Structure
+## 🛠 Local Development
 
-- `apps/cli` - The main CLI application (Published to NPM).
-- `packages/core` - Fragment resolution and composition engine.
-- `packages/tui` - Interactive terminal UI components.
-- `packages/templates` - The fragment registry (Base, Framework, ORM).
-- `packages/plugin-sdk` - Type-safe contracts for plugin developers.
+### Prerequisites
+- Node.js `>= 20.11.0`
+- NPM `>= 10.5.0`
 
-## 🛠 Development
-
-``bash
-# Install dependencies
+### Setup
+```bash
+# Install dependencies and link workspaces
 npm install
 
-# Run typechecking and linting across all workspaces
+# Run typechecking and linting across all packages
 npm run typecheck
 npm run lint
 
-# Run E2E and unit tests
+# Run the full test suite (Unit + E2E)
 npm run test
 
-# Build the CLI binary
+# Build the CLI binary locally
 npm run build
-``
+```
 
-## 🔄 Release Process
+### Testing the CLI Locally
+To test the CLI without publishing to NPM, use the root alias:
+```bash
+npm run sfg -- forge my-test-project
+```
 
-This project uses [Changesets](https://github.com/changesets/changesets) for semantic versioning and automated NPM publishing via GitHub Actions.
+## 🔄 Release Pipeline (Changesets)
 
-``bash
-# Record a changeset
-npm run changeset
+This project uses [Changesets](https://github.com/changesets/changesets) to manage semantic versioning and automated NPM publishing via GitHub Actions.
 
-# Bump versions and generate changelogs
-npm run version-packages
-
-# Publish to NPM (Usually handled by CI)
-npm run release
-``
+1. Create a new branch and make your changes.
+2. Record a changeset: `npm run changeset`
+3. Commit the generated `.changeset/*.md` file.
+4. Open a Pull Request.
+5. Upon merging to `main`, the CI pipeline will open a "Version Packages" PR.
+6. Merging the "Version Packages" PR triggers the automated NPM publish.
 
 ## 📄 License
 
