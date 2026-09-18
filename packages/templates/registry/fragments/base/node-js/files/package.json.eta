@@ -1,0 +1,14 @@
+{
+  "name": "<%= it.project.name %>",
+  "version": "0.1.0",
+  "description": "<%= it.config.description %>",
+  "main": "src/index.js",
+  "type": "module",
+  "scripts": {
+    "dev": "node --watch src/index.js",
+    "start": "node src/index.js"
+  },
+  "author": "<%= it.config.author %>",
+  "license": "<%= it.config.license %>",
+  "devDependencies": {}
+}

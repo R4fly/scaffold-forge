@@ -1,0 +1,7 @@
+{
+  "id": "base/node-js",
+  "name": "Node.js JavaScript Base",
+  "version": "1.0.0",
+  "layer": 10,
+  "description": "Base Node.js project with JavaScript configuration."
+}

@@ -1,0 +1,17 @@
+{
+  "extends": "./tsconfig.base.json",
+  "references": [
+    { "path": "apps/cli" },
+    { "path": "packages/core" },
+    { "path": "packages/config" },
+    { "path": "packages/templates" },
+    { "path": "packages/plugin-sdk" },
+    { "path": "packages/migration" },
+    { "path": "packages/tui" },
+    { "path": "packages/registry-client" },
+    { "path": "packages/telemetry" },
+    { "path": "packages/shared" }
+  ],
+  "include": ["**/*.ts"],
+  "exclude": ["node_modules", "dist"]
+}

@@ -1,0 +1,9 @@
+{
+    "name":  "@scaffold-forge/docs",
+    "version":  "0.1.0",
+    "private":  true,
+    "scripts":  {
+                    "dev":  "echo \u0027Docs setup pending Phase 2\u0027",
+                    "build:docs":  "echo \u0027Docs build pending Phase 2\u0027"
+                }
+}

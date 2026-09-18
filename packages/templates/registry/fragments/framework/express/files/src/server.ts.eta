@@ -1,0 +1,24 @@
+import express from 'express';
+import cors from 'cors';
+import { prisma } from './db/client';
+
+const app = express();
+const port = <%= it.config.port || 3000 %>;
+
+app.use(cors());
+app.use(express.json());
+
+app.get('/', (req, res) => {
+  res.json({ 
+    message: 'Welcome to <%= it.project.name %>',
+    stack: {
+      framework: 'Express',
+      orm: 'Prisma',
+      language: 'TypeScript'
+    }
+  });
+});
+
+app.listen(port, () => {
+  console.log(`[SUCCESS] Server running on http://localhost:${port}`);
+});

@@ -1,0 +1,53 @@
+{
+  "name": "scaffold-forge",
+  "version": "0.1.0",
+  "description": "Forge your stack. One command. Enterprise-grade CLI for generating composable project architectures.",
+  "private": false,
+  "main": "dist/bin.js",
+  "types": "dist/bin.d.ts",
+  "bin": {
+    "sfg": "dist/bin.js",
+    "scaffold-forge": "dist/bin.js"
+  },
+  "files": [
+    "dist",
+    "README.md",
+    "LICENSE"
+  ],
+  "scripts": {
+    "build": "tsup && node scripts/postbuild.js",
+    "typecheck": "tsc --noEmit",
+    "lint": "eslint src/",
+    "test": "vitest run tests",
+    "prepublishOnly": "npm run build && npm run test"
+  },
+  "devDependencies": {
+    "@scaffold-forge/core": "*",
+    "@scaffold-forge/config": "*",
+    "@scaffold-forge/tui": "*",
+    "@scaffold-forge/registry-client": "*",
+    "@scaffold-forge/telemetry": "*",
+    "@scaffold-forge/migration": "*",
+    "commander": "^12.0.0",
+    "tsup": "^8.0.0",
+    "execa": "^8.0.0"
+  },
+  "engines": {
+    "node": ">=20.11.0"
+  },
+  "keywords": [
+    "cli",
+    "scaffold",
+    "generator",
+    "monorepo",
+    "enterprise",
+    "typescript",
+    "prisma",
+    "express"
+  ],
+  "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/your-username/scaffold-forge.git"
+  }
+}

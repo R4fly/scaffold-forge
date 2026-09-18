@@ -1,0 +1,7 @@
+{
+  "id": "base/node-ts",
+  "name": "Node.js TypeScript Base",
+  "version": "1.0.0",
+  "layer": 10,
+  "description": "Base Node.js project with TypeScript configuration."
+}

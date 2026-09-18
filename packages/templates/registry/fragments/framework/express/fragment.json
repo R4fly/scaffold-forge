@@ -1,0 +1,7 @@
+{
+  "id": "framework/express",
+  "name": "Express",
+  "version": "1.0.0",
+  "layer": 30,
+  "description": "Minimal and flexible Node.js web framework."
+}

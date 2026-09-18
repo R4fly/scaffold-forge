@@ -1,0 +1,4 @@
+console.log('Welcome to <%= it.project.name %>!');
+console.log('Framework: <%= it.config.framework %>');
+console.log('ORM: <%= it.config.orm %>');
+console.log('Database: <%= it.config.database %>');

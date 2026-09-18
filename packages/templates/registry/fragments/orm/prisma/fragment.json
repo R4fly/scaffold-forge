@@ -1,0 +1,7 @@
+{
+  "id": "orm/prisma",
+  "name": "Prisma",
+  "version": "1.0.0",
+  "layer": 40,
+  "description": "Next-generation Node.js and TypeScript ORM."
+}

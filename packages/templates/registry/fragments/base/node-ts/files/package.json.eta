@@ -1,0 +1,19 @@
+{
+  "name": "<%= it.project.name %>",
+  "version": "0.1.0",
+  "description": "<%= it.config.description %>",
+  "main": "dist/index.js",
+  "types": "dist/index.d.ts",
+  "scripts": {
+    "build": "tsc",
+    "dev": "tsx src/index.ts",
+    "start": "node dist/index.js"
+  },
+  "author": "<%= it.config.author %>",
+  "license": "<%= it.config.license %>",
+  "devDependencies": {
+    "typescript": "^5.4.0",
+    "@types/node": "^20.11.0",
+    "tsx": "^4.7.0"
+  }
+}
