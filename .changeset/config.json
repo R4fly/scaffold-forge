@@ -6,7 +6,7 @@
   "changelog": [
     "@changesets/changelog-github",
     {
-      "repo": "scaffold-forge"
+      "repo": "R4fly/scaffold-forge"
     }
   ],
   "commit": true,
