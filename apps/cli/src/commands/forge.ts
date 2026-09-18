@@ -50,8 +50,8 @@ export async function forgeCommand(name?: string) {
     `orm/${wizardConfig.orm}`,
   ];
 
-  // Dependency Injection: Provide explicit registry path to avoid __dirname issues in bundled CLI
-  const registryPath = path.resolve(process.cwd(), 'packages/templates/registry/fragments');
+  // FIX: Use __dirname to resolve templates relative to the bundled CLI installation path
+  const registryPath = path.resolve(__dirname, 'templates/registry/fragments');
   const composer = new Composer({ registryPath });
   
   await composer.compose(targetDir, {

@@ -15,7 +15,7 @@
     "LICENSE"
   ],
   "scripts": {
-    "build": "tsup && node scripts/postbuild.js",
+    "build": "tsup && node scripts/copy-templates.js && node scripts/postbuild.js",
     "typecheck": "tsc --noEmit",
     "lint": "eslint src/",
     "test": "vitest run tests",
