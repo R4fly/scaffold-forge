@@ -1,6 +1,6 @@
 {
   "name": "scaffold-forge",
-  "version": "0.1.0",
+  "version": "0.2.0",
   "description": "Forge your stack. One command. Enterprise-grade CLI for generating composable project architectures.",
   "private": false,
   "main": "dist/bin.js",
